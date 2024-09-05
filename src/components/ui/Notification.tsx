@@ -1,5 +1,5 @@
-import { notification1 } from "../assets";
-import { notificationImages } from "../variables";
+import { notification1 } from "../../assets";
+import { notificationImages } from "../../variables";
 
 interface NotificationProps {
   className: string;

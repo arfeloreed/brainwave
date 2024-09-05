@@ -4,7 +4,7 @@ import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import { brainwave } from "../assets";
 import { navigation } from "../variables";
-import Button from "./Button";
+import Button from "./ui/Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 
@@ -40,7 +40,7 @@ const Header = () => {
         </a>
 
         <nav
-          className={`${isNavOpen ? "flex" : "hidden"} fixed top-[5rem] left-0 right-0 bottom-0 
+          className={`${isNavOpen ? "flex" : "hidden"} fixed top-[4.8rem] left-0 right-0 bottom-0 
                   bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
           <div

@@ -1,4 +1,4 @@
-import { companyLogos } from "../variables";
+import { companyLogos } from "../../variables";
 
 interface CompanyLogosProps {
   className: string;
