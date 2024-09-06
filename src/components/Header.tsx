@@ -40,8 +40,8 @@ const Header = () => {
         </a>
 
         <nav
-          className={`${isNavOpen ? "flex" : "hidden"} fixed top-[4.8rem] left-0 right-0 bottom-0 
-                  bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
+          className={`${isNavOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"} fixed top-[4.8rem] left-0 right-0 bottom-0 
+                  bg-n-8 lg:opacity-100 lg:static flex lg:translate-y-0 lg:pointer-events-auto lg:mx-auto lg:bg-transparent transition-all duration-500 ease-in-out`}
         >
           <div
             className="relative z-2 flex flex-col items-center justify-center m-auto
