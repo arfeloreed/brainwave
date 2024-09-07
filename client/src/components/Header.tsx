@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 import { brainwave } from "../assets";
 import { navigation } from "../variables";
 import Button from "./ui/Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
+import LoginButton from "./ui/LoginButton";
 
 const Header = () => {
   const pathname = useLocation();
@@ -28,6 +31,18 @@ const Header = () => {
     setIsNavOpen(false);
     enablePageScroll();
   };
+
+  const handleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      const userInfo = await axios.get(
+        "https://www.googleapis.com/oauth2/v3/userinfo",
+        { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } },
+      );
+
+      console.log(userInfo);
+    },
+    onError: (errorResponse) => console.log(errorResponse),
+  });
 
   return (
     <div
@@ -68,15 +83,9 @@ const Header = () => {
           <HamburgerMenu />
         </nav>
 
-        <a
-          href="#signup"
-          className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
-        >
-          New account
-        </a>
-        <Button className="hidden lg:flex" href="#login">
+        <LoginButton className="hidden lg:flex" onClick={() => handleLogin()}>
           Sign in
-        </Button>
+        </LoginButton>
 
         <Button className="ml-auto lg:hidden" px="px-3" onClick={toggleNav}>
           <MenuSvg openNavigation={isNavOpen} />

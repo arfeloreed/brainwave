@@ -3,7 +3,7 @@ import ButtonSvg from "../../assets/svg/ButtonSvg";
 interface ButtonProps {
   className?: string;
   href?: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: () => void;
   px?: string;
   white?: boolean;
   children: React.ReactNode;
