@@ -19,22 +19,20 @@ const App = () => {
   }
 
   return (
-    <>
-      <GoogleOAuthProvider clientId={clientId}>
-        <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-          <Header />
-          <Hero />
-          <Benifits />
-          <Collaboration />
-          <Services />
-          <Pricing />
-          <Roadmap />
-          <Footer />
-        </div>
+    <GoogleOAuthProvider clientId={clientId}>
+      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+        <Header />
+        <Hero />
+        <Benifits />
+        <Collaboration />
+        <Services />
+        <Pricing />
+        <Roadmap />
+        <Footer />
+      </div>
 
-        <ButtonGradient />
-      </GoogleOAuthProvider>
-    </>
+      <ButtonGradient />
+    </GoogleOAuthProvider>
   );
 };
 
